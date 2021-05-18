@@ -13,6 +13,7 @@
     <h2>Snack 1</h2>
 
     <?php 
+    // Matches Array
     $matches = [
         [
             'home_team' => 'Nets',
@@ -46,6 +47,7 @@
         ],
     ];
 
+    // Print Match Results
     for($i = 0; $i < count($matches); $i++) { ?>
     <ul>
         <li><?php echo $matches[$i]['home_team'] . ' - '
@@ -53,5 +55,38 @@
         $matches[$i]['home_point'] . '-' . $matches[$i]['away_point']?></li>
     </ul>
     <?php } ?>
+
+    <!-- SNACK 2 -->
+    <h2>Snack 2</h2>
+
+    <?php
+    // Data from query string 
+    $name = $_GET['name'];
+    $mail = $_GET['mail'];
+    $age = $_GET['age'];
+
+    if(!empty($name) && !empty($mail) && !empty($age)) {
+        // Name validation
+        if(strlen($name) < 4){
+            echo "Access Denied. Name '$name' it's too short";
+        } 
+        // Mail validation
+        elseif(strpos($mail, '@') === false || strpos($mail, '.') === false){
+            echo "Access Denied. Mail '$mail' it's not valid";
+        } 
+        // Age validation
+        elseif(!is_numeric($age)){
+            echo "Access Denied. Age '$age' it's not valid";
+        }
+        // Access allowed
+        else {
+            echo "Access Allowed. Welcome $name";
+        }
+    } 
+    // Lack of data
+    else {
+        echo "Access Denied. Lack of data. We need name, mail and age ";
+    }
+    ?>
 </body>
 </html>
