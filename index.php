@@ -88,5 +88,22 @@
         echo "Access Denied. Lack of data. We need name, mail and age ";
     }
     ?>
+
+    <!-- SNACK 3 -->
+    <h2>Snack 3</h2>
+
+    <?php
+    $arr_length = 15;
+    $random_numbers = [];
+    // Populate Array
+    while(count($random_numbers) < $arr_length){
+        $num = rand(1, 100);
+
+        if(!in_array($num, $random_numbers)){
+            $random_numbers[] = $num;
+        }
+    }
+    var_dump($random_numbers);
+    ?>
 </body>
 </html>
