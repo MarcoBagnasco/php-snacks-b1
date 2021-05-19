@@ -46,15 +46,15 @@
             'away_point' => 121,
         ],
     ];
-
-    // Print Match Results
-    for($i = 0; $i < count($matches); $i++) { ?>
+    ?>
+    <!-- Print Match Results -->
     <ul>
-        <li><?php echo $matches[$i]['home_team'] . ' - '
-        . $matches[$i]['away_team'] . ' | ' . 
-        $matches[$i]['home_point'] . '-' . $matches[$i]['away_point']?></li>
+        <?php for($i = 0; $i < count($matches); $i++) { ?>
+            <li><?php echo $matches[$i]['home_team'] . ' - '
+            . $matches[$i]['away_team'] . ' | ' . 
+            $matches[$i]['home_point'] . '-' . $matches[$i]['away_point']?></li>
+        <?php } ?>
     </ul>
-    <?php } ?>
 
     <!-- SNACK 2 -->
     <h2>Snack 2</h2>
